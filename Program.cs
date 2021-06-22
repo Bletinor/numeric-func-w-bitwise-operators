@@ -9,8 +9,8 @@ namespace numeric_func_w_bitwise
             Console.WriteLine(abs(-5));
             Console.WriteLine(isPositive(20));
             Console.WriteLine(isNegative(-5));
-            Console.WriteLine(isOdd(7));
-            Console.WriteLine(isEven(10));
+            Console.WriteLine(isOdd(9));
+            Console.WriteLine(isEven(8));
         }
 
         static int abs(int x)
@@ -63,7 +63,7 @@ namespace numeric_func_w_bitwise
 
         static bool isOdd(int x)
         {
-            var test = x%2 ^ 0;
+            var test = x%2 | 0;
             bool result;
             if (test == 0)
             {
@@ -79,7 +79,7 @@ namespace numeric_func_w_bitwise
 
         static bool isEven(int x)
         {
-            var test = x % 2 ^ 0;
+            var test = x % 2 | 0;
             bool result;
             if (test == 0)
             {
