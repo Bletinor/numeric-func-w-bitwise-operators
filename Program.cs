@@ -19,7 +19,9 @@ namespace numeric_func_w_bitwise
             var test = x | z;
             if (test <= 0)
             {
-                return -x;
+                var mask = x >> (31);
+                return ((x + mask) ^ mask);
+                //return -x;
             }
             else
             {
