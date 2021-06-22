@@ -6,20 +6,25 @@ namespace numeric_func_w_bitwise
     {
         static void Main(string[] args)
         {
-            //Console.WriteLine(abs(5));
+            Console.WriteLine(abs(-5));
             Console.WriteLine(isPositive(20));
             Console.WriteLine(isNegative(-5));
-            Console.WriteLine(isOdd(5));
-            Console.WriteLine(isEven(5));
+            Console.WriteLine(isOdd(7));
+            Console.WriteLine(isEven(10));
         }
 
         static int abs(int x)
         {
-            if (x <= 0)
+            ushort z = 5;
+            var test = x | z;
+            if (test <= 0)
             {
-                
+                return -x;
             }
-            return x;
+            else
+            {
+                return x;
+            }
         }
 
         static bool isPositive(int x)
