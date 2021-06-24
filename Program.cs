@@ -6,15 +6,20 @@ namespace numeric_func_w_bitwise
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(abs(-5));
-            Console.WriteLine(isPositive(20));
-            Console.WriteLine(isNegative(-5));
-            Console.WriteLine(isOdd(9));
+            //Console.WriteLine(abs(-5));
+            //Console.WriteLine(isPositive(-20));
+            //Console.WriteLine(isPositive(20));
+            //Console.WriteLine(isNegative(5));
+            //Console.WriteLine(isNegative(-5));
+            //Console.WriteLine(isOdd(14));
+            //Console.WriteLine(isOdd(11));
+            Console.WriteLine(isEven(7));
             Console.WriteLine(isEven(8));
         }
 
         static int abs(int x)
         {
+            //Este la hice de manera correcta desde el principio porque vi un referencia en stack overflow https://stackoverflow.com/questions/60601908/absolute-value-absx-using-bitwise-operators-and-boolean-logic
             ushort z = 5;
             var test = x | z;
             if (test <= 0)
@@ -31,10 +36,9 @@ namespace numeric_func_w_bitwise
 
         static bool isPositive(int x)
         {
-            ushort z = 10;
-            var test = x | z;
-            bool result; 
-            if (test > 0)
+            var mask = x >> 31;
+            bool result;
+            if ((mask | 0) == 0)
             {
                 result = true;
             }
@@ -48,16 +52,15 @@ namespace numeric_func_w_bitwise
 
         static bool isNegative(int x)
         {
-            ushort z = 10;
-            var test = x | z;
+            var mask = x>>31;
             bool result;
-            if (test > 0)
+            if ((mask & 1) == 1)
             {
-                result = false;
+                result = true;
             }
             else
             {
-                result = true;
+                result = false;
             }
 
             return result;
@@ -65,9 +68,8 @@ namespace numeric_func_w_bitwise
 
         static bool isOdd(int x)
         {
-            var test = x%2 | 0;
             bool result;
-            if (test == 0)
+            if ((x ^ 1) == x + 1)
             {
                 result = false;
             }
@@ -81,9 +83,8 @@ namespace numeric_func_w_bitwise
 
         static bool isEven(int x)
         {
-            var test = x % 2 | 0;
             bool result;
-            if (test == 0)
+            if ((x ^ 1) == x + 1)
             {
                 result = true;
             }
